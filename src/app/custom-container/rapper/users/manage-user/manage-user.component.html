@@ -1,0 +1,55 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div class="container">
+    <h3 class="py-4 text-center text-primary">Manage Product</h3>
+    <hr>
+    <div class="row">
+        <div class="col-md-6 my-2">
+            <form #userForm="ngForm" (ngSubmit)="userAdd(userForm.value)">
+                <div class="card p-3">
+                    <div class="form-group">
+                        <label>User Name</label>
+                        <input type="text" class="form-control" placeholder="User Name" name="username" ngModel required>
+                    </div>
+                    <div class="form-group">
+                        <label>Technology Use</label>
+                        <input type="text" class="form-control" placeholder="Technology Use" name="technology" ngModel required>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-success mr-1" [disabled]=!userForm.valid>Add User</button>
+                        <button type="button" class="btn btn-warning">Add User</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6 my-2">
+            <h5 class="text-center mb-3 text-primary">User List</h5>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>User Name</th>
+                        <th>Technology Use</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of userItems; index as i">
+                        <td class="text-center">{{i+1}}</td>
+                        <td class="text-center">{{user.username}}</td>
+                        <td class="text-center">{{user.technology}}</td>
+                        <td class="text-center">
+                            <a (click)="editUser(i)" class="text-warning" href="javascript:void(0)"><span class="material-icons">
+edit
+</span></a>
+                            <td class="text-center">
+                                <a (click)="removeUser(i)" class="text-danger" href="javascript:void(0)"><span class="material-icons">
+delete
+</span></a>
+                            </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

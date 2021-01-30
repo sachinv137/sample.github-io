@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="card card-container">
+        <img id="profile-img" class="profile-img-card" src="/assets/images/avatar.png" />
+        <p id="profile-name" class="profile-name-card"></p>
+
+        <input type="text" #uname class="form-control mb-2" placeholder="User Name" required>
+        <input type="password" #pswd class="form-control mb-2" placeholder="Password" required>
+        <div id="remember" class="checkbox">
+            <label>
+                        <input type="checkbox" value="remember-me"> Remember me
+                    </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block btn-signin mb-2" (click)="sign(uname,pswd)">Sign in</button>
+
+        <!-- /form -->
+        <a href="#" class="forgot-password">
+                Forgot the password?
+            </a>
+    </div>
+    <!-- /card-container -->
+</div>
+<!-- /container -->

@@ -1,0 +1,66 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div class="container">
+    <h3 class="py-4 text-center text-primary">Manage Product</h3>
+    <hr>
+    <div class="row">
+        <div class="col-md-6 my-2">
+            <form>
+                <div class="card p-3">
+                    <div class="form-group">
+                        <label>Product Id</label>
+                        <input type="text" class="form-control" placeholder="Product Id" #id>
+                    </div>
+                    <div class="form-group">
+                        <label>Product Name</label>
+                        <input type="text" class="form-control" placeholder="Product Name" #name>
+                    </div>
+                    <div class="form-group">
+                        <label>Product Price</label>
+                        <input type="number" class="form-control" placeholder="Product Price" #price>
+                    </div>
+                    <div>
+                        <a class="btn btn-success mr-1 text-white" (click)="addProduct(id,name,price)">{{editMode? 'Update Product' : 'Add Product'}}</a>
+                        <!-- <a class="btn btn-primary mr-1 text-white" (click)="saveProduct()">Save Product</a> -->
+                        <!-- <a class="btn btn-warning text-white" (click)="fatchProduct()">Fatch Product</a> -->
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6 my-2">
+            <h5 class="text-center mb-3 text-primary">Product List</h5>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Product Id</th>
+                        <th>Product Name</th>
+                        <th>Product Price</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of productsItem;index as i">
+                        <td class="text-center">{{i+1}}</td>
+                        <td class="text-center">{{product.id}}</td>
+                        <td class="text-center">{{product.name}}</td>
+                        <td class="text-center">{{product.price}}</td>
+                        <td class="text-center">
+                            <a (click)="editProdudct(i)" class="text-warning" href="javascript:void(0)"><span class="material-icons">
+edit
+</span></a>
+                            <td class="text-center">
+                                <a (click)="removeProdudct(i)" class="text-danger" href="javascript:void(0)"><span class="material-icons">
+delete
+</span></a>
+                            </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="text-center" *ngIf="fatch">
+                Fetching Data....
+            </div>
+
+        </div>
+    </div>
+</div>

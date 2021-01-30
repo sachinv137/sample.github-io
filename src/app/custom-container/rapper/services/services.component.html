@@ -1,0 +1,18 @@
+<div class="container">
+    <h4 class="text-center my-3">Top Recipes</h4>
+    <hr>
+    <div class="row recipes">
+        <div class="col-md-3 my-3" *ngFor="let item of recipes">
+            <div class="card">
+                <div class="card-header">
+                    <img class="card-img-top img-fluid" src="{{item.url}}" alt="Card image cap">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{item.title}}</h5>
+                    <a routerLink="{{item.id}}" class="btn btn-success">Read More</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

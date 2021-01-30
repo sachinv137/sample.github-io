@@ -1,0 +1,55 @@
+<div class="container">
+    <nav class="navbar navbar-expand-sm pb-0 mb-0">
+        <a class="navbar-brand text-dark" href="javascript:void(0)"><img src="/assets/images/logo.png" class="img-custom img-fluid" /></a>
+        <ul class="navbar-nav ml-auto" *ngIf="!back.text">
+            <li class="nav-item px-2">
+                <a class="nav-link text-dark" routerLinkActive="active" [routerLinkActiveOptions]="{exact:'true'}" routerLink="/home">Home</a>
+            </li>
+            <li class="nav-item px-2">
+                <a class="nav-link text-dark" routerLinkActive="active" routerLink="/about">About Us</a>
+            </li>
+            <li class="nav-item px-2 dropdown">
+                <a class="nav-link text-dark dropdown-toggle" data-toggle="dropdown" routerLinkActive="active" href="javascript:void(0);">Products</a>
+                <div class="dropdown-menu ">
+                    <a class="dropdown-item bg-light text-info" routerLink="products/buy-product" routerLinkActive="active">Buy Product</a>
+                    <a class="dropdown-item bg-light text-info" routerLink="products/buy-product2" routerLinkActive="active">Buy Product2</a>
+                    <a class="dropdown-item bg-light text-info" routerLink="products/create-product" routerLinkActive="active">Create Product</a>
+                    <a class="dropdown-item bg-light text-info" routerLink="products/behavior" routerLinkActive="active">Use Of Behavior</a>
+                    <a class="dropdown-item bg-light text-info" routerLink="products/manage-product" routerLinkActive="active">Manage Product</a>
+                </div>
+            </li>
+            <li class="nav-item px-2">
+                <a class="nav-link text-dark" routerLinkActive="active" routerLink="/recipes">Recipes</a>
+            </li>
+            <li class="nav-item px-2">
+                <a class="nav-link text-dark" routerLinkActive="active" routerLink="/contact">Contact Us</a>
+            </li>
+            <li class="nav-item px-2 dropdown">
+                <a class="nav-link text-dark dropdown-toggle" data-toggle="dropdown" routerLinkActive="active" href="javascript:void(0);">Users</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item bg-light text-info" routerLink="users/top-users" routerLinkActive="active">Top Users</a>
+                    <a class="dropdown-item bg-light text-info" routerLink="users/add-user" routerLinkActive="active">Add User</a>
+                    <a class="dropdown-item bg-light text-info" routerLink="users/contact-form" routerLinkActive="active">Contact Form</a>
+                </div>
+            </li>
+        </ul>
+        <ng-container class="mr-auto ml-5" *ngIf="back.text">
+            <a routerLink="{{back.url}}" class="btn">&lt; {{back.text}}</a>
+        </ng-container>
+        <div class="ml-auto" *ngIf="!contact">
+            <div *ngIf="!welcome">
+                <button class="btn btn-primary" routerLink="/signin">Sign In</button>
+            </div>
+            <div class="wel-class" *ngIf="welcome">
+                <h6>Welcome <span class="text-success">{{welcome}}</span></h6>
+                <button class="btn btn-info" routerLink="/signin" (click)="logout()">Log Out</button>
+            </div>
+        </div>
+        <div class="ml-auto pt-3" *ngIf="contact">
+            <h6 class="text-info mb-0">sasdchinv137@gmail.com</h6>
+            <h6 class="text-info">9954876543/985431789</h6>
+        </div>
+    </nav>
+
+</div>
+<hr class="my-0">

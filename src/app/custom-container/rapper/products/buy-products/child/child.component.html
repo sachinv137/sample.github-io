@@ -1,0 +1,5 @@
+<div class="bg-success py-4 text-center text-white">
+    <h4 class="pb-2" *ngIf="!selectedproduct">Please Select Product</h4>
+    <h4 class="pb-2" *ngIf="selectedproduct">{{grosary}} is selected</h4>
+    <button class="btn" (click)="additem()">Add to Cart</button>
+</div>

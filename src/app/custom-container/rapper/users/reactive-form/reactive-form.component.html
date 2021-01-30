@@ -1,0 +1,55 @@
+<section id="contact" class="contact2 mt-3">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 bg-white rounded shadow p-4 border-custom" [ngClass]="formClass">
+                <form [formGroup]="myReactiveForm" (ngSubmit)="onSubmit()">
+                    <div class="form-row" formGroupName="userlist">
+                        <div class="col form-group">
+                            <label for="uname">User Name*</label>
+                            <input type="text" formControlName="uname" class="form-control" id="name" placeholder="User Name" />
+                            <small class="text-danger" *ngIf="!this.myReactiveForm.get('userlist.uname').valid && this.myReactiveForm.get('userlist.uname').touched">
+                               <span *ngIf="this.myReactiveForm.get('userlist.uname').errors['required']"> Username is not valid</span>
+                               <span *ngIf="this.myReactiveForm.get('userlist.uname').errors['namenotallow']">{{this.myReactiveForm.get('userlist.uname').value}} is not allow</span>
+                            </small>
+                        </div>
+                        <div class="col form-group">
+                            <label for="email">Email*</label>
+                            <input type="email" class="form-control" formControlName="email" id="email" placeholder="Your Email" />
+                            <small class="text-danger" *ngIf="!this.myReactiveForm.get('userlist.email').valid && this.myReactiveForm.get('userlist.email').touched">
+                                <span *ngIf="this.myReactiveForm.get('userlist.email').errors['email']">Email is not valid.</span>
+                                <span *ngIf="this.myReactiveForm.get('userlist.email').errors['required']">Email should not blank.</span>
+                                <span *ngIf="this.myReactiveForm.get('userlist.email').errors['emailnotallow']">This email is not allow. Write other email.</span>
+                            </small>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Choose Subject</label>
+                        <select class="form-control" formControlName="subject">
+      <option value='Angular'>Angular</option>
+      <option value='Html'>Html</option>
+      <option value='Css'>Css</option>
+    </select>
+                    </div>
+                    <div class="form-group" formArrayName="skills">
+                        <label>Add Skills</label>
+                        <ng-container *ngFor="let skill of myReactiveForm.get('skills')['controls']; index as i">
+                            <input type="text" formControlName="{{i}}" class="form-control mb-2" placeholder="Add Skills" />
+                        </ng-container>
+                        <a class="btn btn-info btn-sm mt-3 text-white" (click)="addmore()">Add More</a>
+                    </div>
+                    <div class="form-group">
+                        <div class="custom-control custom-radio" *ngFor="let gend of gender">
+                            <input type="radio" id="{{gend.id}}" formControlName="gender" value="{{gend.value}}" class="custom-control-input">
+                            <label class="custom-control-label" for="{{gend.id}}">
+      {{gend.value}}</label>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <button type="submit" class="btn btn-primary">Send </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

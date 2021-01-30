@@ -1,0 +1,5 @@
+<div class="border p-3" [ngClass]="boxClass">
+    <input type="text" class="form-control" placeholder="{{placeHolderName}}" #inputVal>
+    <button class="btn btn-primary my-3" (click)="addItem(inputVal)">{{addBtn}}</button>
+    <p *ngIf="count">Total Count : {{count}}</p>
+</div>

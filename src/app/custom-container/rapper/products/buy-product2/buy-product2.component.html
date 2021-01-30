@@ -1,0 +1,19 @@
+<div class="container">
+    <h4 class="text-center my-3">Buy Products</h4>
+    <hr>
+    <div class="row product">
+        <div class="col-md-3 my-3" *ngFor="let items of productsItem">
+            <div class="card">
+                <div class="card-header">
+                    <img class="card-img-top img-fluid" src="{{items.imgurl}}" alt="Card image cap">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{items.title}}</h5>
+                    <a routerLink="{{items.id}}" class="btn btn-success text-white">Know More</a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

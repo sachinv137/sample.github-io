@@ -1,0 +1,26 @@
+.wel-class>h6 {
+    display: inline;
+    padding-right: 15px;
+}
+
+.wel-class>a {
+    margin-right: 15px;
+}
+
+.top-nav a {
+    text-decoration: none;
+}
+
+a.text-dark.active {
+    background: #e9edf0;
+    border-radius: 18px;
+}
+
+.p-3.px-md-4 {
+    padding-bottom: 0px!important;
+}
+
+.img-custom.img-fluid {
+    width: auto;
+    height: 85px;
+}

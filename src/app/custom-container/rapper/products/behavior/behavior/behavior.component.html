@@ -1,0 +1,36 @@
+<div class="container">
+    <h3 class="py-4 text-center">Use of Behavior and Behavior Subject</h3>
+    <hr>
+    <h4 class="pb-4 text-center">The name of user : {{userdataa}}</h4>
+    <div class="row">
+        <div class="col-md-6 my-2">
+            <app-boxone></app-boxone>
+        </div>
+        <div class="col-md-6 my-2">
+            <app-boxtwo></app-boxtwo>
+        </div>
+        <div class="col-md-6 my-2">
+            <app-boxthree></app-boxthree>
+        </div>
+        <div class="col-md-6 my-2">
+            <app-boxfour></app-boxfour>
+        </div>
+    </div>
+    <hr>
+    <h4 class="pb-4 text-center">Component Life Cycle Hook</h4>
+    <div class="card border border-secondary mb-3">
+        <div class="card-body">
+            <div class="d-flex align-items-center">
+                <input type="text" class="form-control" placeholder="Name" #dataname>&nbsp;
+                <button class="btn btn-success ml-auto" (click)="updatedata(dataname)">Change Value</button>
+            </div>
+        </div>
+    </div>
+    <div class="card my-3 py-2 bg-warning">
+        <app-childlife [childdatauser]="data" *ngIf='see'>
+            <h5 class="text-center">ng-content : {{data}}</h5>
+        </app-childlife>
+    </div>
+    <div class="text-center my-3"><button class="btn btn-danger btn-sm" (click)='dest()'>Destroy Component</button></div>
+
+</div>
